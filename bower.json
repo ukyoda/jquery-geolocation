@@ -1,0 +1,15 @@
+{
+  "name": "jquery-geolocation",
+  "version": "0.0.0",
+  "authors": [
+    "ukyoda <black12172001@hotmail.co.jp>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

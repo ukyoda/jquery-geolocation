@@ -1,0 +1,25 @@
+{
+  "name": "jquery-geolocation",
+  "version": "0.0.0",
+  "description": "Geolocation for jQuery Plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/var/git/jquery-geolocation.git"
+  },
+  "keywords": [
+    "navigator.geolocation",
+    "jQuery"
+  ],
+  "author": "ukyoda",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
