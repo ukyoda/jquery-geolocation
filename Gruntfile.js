@@ -8,11 +8,13 @@ module.exports = function(grunt) {
 		banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
 			'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>;' +
 			' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
 		// Task configuration.
 		concat: {
 			options:{
+				banner: '<%= banner %>',
+				stripBanners: true
 			},
 			basic: {
 				files:{
@@ -46,8 +48,32 @@ module.exports = function(grunt) {
 			gruntfile: {
 				src: 'Gruntfile.js'
 			},
-			lib_test: {
-				src: ['lib/**/*.js', 'test/**/*.js']
+			dist: {
+				src: ['dist/*.js']
+			}
+		},
+		connect: {
+			server: {
+				options: {
+					port: 8000,
+					base: ['test','dist']
+				}
+			}
+		},
+		watch: {
+			dist: {
+				files: ['libs/**/*.js'],
+				tasks: ['concat', 'jshint:dist'],
+				options: {
+					livereload: true
+				}
+			},
+			test: {
+				files: ['test/**/*'],
+				tasks: [],
+				options: {
+					livereload:true
+				}
 			}
 		}
 	});
@@ -55,9 +81,11 @@ module.exports = function(grunt) {
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Default task.
-	grunt.registerTask('default', ['jshint', 'concat' ]);
+	grunt.registerTask('default', ['concat', 'jshint' ]);
+	grunt.registerTask('test', ['concat', 'jshint', 'connect', 'watch' ]);
 
 };

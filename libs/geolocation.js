@@ -11,7 +11,7 @@ $.currentPosition = function(){
 	if(!navigator.getCurrentPosition){
 		deferred.reject({
 			status:404,
-			message:"You can't use Geolocation API.";
+			message:"You can't use Geolocation API."
 		});
 	} else {
 		navigator.getCurrentPosition(
