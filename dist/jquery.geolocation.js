@@ -1,4 +1,4 @@
-/*! jquery-geolocation - v0.0.0 - 2014-02-09
+/*! jquery-geolocation - v0.0.0 - 2014-02-27
 * Copyright (c) 2014 ukyoda; Licensed  */
 (function($){
 

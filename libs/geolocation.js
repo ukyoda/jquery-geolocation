@@ -10,14 +10,14 @@ $.currentPosition = function(){
 	var deferred = $.Deferred();
 	if(!navigator.getCurrentPosition){
 		deferred.reject({
-			status:404,
+			status:0,
 			message:"You can't use Geolocation API."
 		});
 	} else {
 		navigator.getCurrentPosition(
 			function(geoInfo){
 				deferred.resolve(geoInfo,{
-					status:200,
+					status:1,
 					message:"OK"
 				});
 			},
